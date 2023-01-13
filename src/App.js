@@ -1,16 +1,18 @@
 import './App.css';
+import React, { Component } from 'react'
+import NavBar from './components/NavBar'
+import News from './components/News';
+
 
 // react class base components type - rcc 
 
-import React, { Component } from 'react'
-import navbar from './components/navbar';
 
 export default class App extends Component {
-  c='vishal';
   render() {
     return (
       <div>
-        <navbar/>
+        <NavBar />
+        <News/>
       </div>
     )
   }
