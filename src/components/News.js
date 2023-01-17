@@ -43,15 +43,12 @@ constructor(){
       <div className="container my-3">
        <h2>New Total - Top Headlines</h2>
        <div className="row">
-            <div className="col-md-4">
-                <NewsItem title="myTitle" description="mydesc" imageUrl="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1099495_800x450.jpg"/>
+       {this.state.articles.map((element)=>{
+        return <div className="col-md-4"  key={element.url} >
+                <NewsItem title={element.title} description={element.description} imageUrl={element.urlToImage} newsUrl={element.url}/>
             </div>
-            <div className="col-md-4">
-            <NewsItem title="myTitle" description="mydesc" imageUrl="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1099495_800x450.jpg"/>
-            </div>
-            <div className="col-md-4">
-            <NewsItem title="myTitle" description="mydesc" imageUrl="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1099495_800x450.jpg"/>
-            </div>
+       })}
+  
       </div>
       </div>
     )
