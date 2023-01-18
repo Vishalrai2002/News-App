@@ -38,7 +38,19 @@ constructor(){
       loading:false
     }
 }
+
+async componentDidMount(){
+    console.log("cdm");
+    let url="https://newsapi.org/v2/top-headlines?country=in&apiKey=b3ffabd098f0420480f110883232f7f0";
+    let data=await fetch(url);
+    let parsedData=await data.json();
+    console.log(parsedData);
+    this.setState({articles:parsedData.articles})
+
+  }
+
   render() {
+
     return (
       <div className="container my-3">
        <h2>New Total - Top Headlines</h2>
