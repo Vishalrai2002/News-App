@@ -36,6 +36,7 @@ export class News extends Component {
 
 
     async updateNews(){
+        this.props.setProgress(10);
         let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apikey=b3ffabd098f0420480f110883232f7f0&page=${this.state.page}&pageSize=${this.props.pageSize}`;
         this.setState({loading:true});
             let data = await fetch(url);
@@ -45,13 +46,13 @@ export class News extends Component {
                 totalResults: parsedData.totalResults,
                 loading:false,
             })
+        this.props.setProgress(100);
 
     }
 
 
     async componentDidMount(){ 
-
-    this.updateNews();
+        this.updateNews();
     }
 
      handlePrevClick = async ()=>{
@@ -87,7 +88,7 @@ export class News extends Component {
                 <InfiniteScroll
                     dataLength={this.state.articles.length}
                     next={this.fetchMoreData}
-                    hasMore={this.state.articles.length!=this.state.totalResults}
+                    hasMore={(this.state.articles.length)!==this.state.totalResults}
                     loader={<Spinner/>}> 
                     <div className="container">
                 <div className="row"> 
