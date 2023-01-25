@@ -10,7 +10,7 @@ const NewsItem =(props)=> {
                     position:'absolute',
                     right:'0',
                 }}>
-                <span class="badge rounded-pill bg-danger" > {source}
+                <span className="badge rounded-pill bg-danger" > {source}
                         </span>
                     </div>
                     <img src={!imageUrl?"https://image.cnbcfm.com/api/v1/image/107179843-1673998440397-gettyimages-1243657231-JAPAN_TANKAN.jpeg?v=1673999044&w=1920&h=1080":imageUrl} className="card-img-top" alt="..."/>
